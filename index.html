@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Range and Selection Apis</title>
+</head>
+<body>
+    <p>Range</p>
+    <p>Selecting the text partially</p>
+    <p id="selecting-the-text-partially">This is the sample text for selecting the text partially example</p>
+    <button onclick="selectingTextPartially">click to get partialy selected text</button>
+    <p>range selected: <span id="selecting-the-text-partially-result"></span></p>
+</body>
+<script>
+
+/**
+ *  range is essentially a set of boundry points ( start and end )
+ */
+/**
+ *  range.setStart(node, offset)
+ *  range.setEnd(node, offset)
+ * 
+ * if the start node is text node then the offset must be the position in text
+ */
+function selectingTextPartially() {
+
+let node = document.getElementById('selecting-the-text-partially')
+
+let range = Range()
+range.setStart(node.firstChild, 3)
+range.setEnd(node.firstChild, 6)
+
+// console.log(range)
+
+// let result = document.getElementById('selecting-the-text-partially-result')
+}
+</script>
+</html>
