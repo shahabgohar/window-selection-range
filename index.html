@@ -10,31 +10,63 @@
     <p>Range</p>
     <p>Selecting the text partially</p>
     <p id="selecting-the-text-partially">This is the sample text for selecting the text partially example</p>
-    <button onclick="selectingTextPartially">click to get partialy selected text</button>
+    <button onclick="selectingTextPartially()">click to get partialy selected text</button>
     <p>range selected: <span id="selecting-the-text-partially-result"></span></p>
+    <hr>
+    <p>Selecting element nodes</p>
+    <p id="selecting-element-nodes">This is the sample <i> text </i> for selecting the text <b>partially</b> example</p>
+    <button onclick="selectingNodeElements()">selecting nodes</button>
+    <p>range selected: <span id="selecting-element-nodes-result"></span></p>
+    <hr>
+    <p>Selecting a bigger fragment</p>
+    <p id="selecting-bigger-fragment">This is the sample <i> text </i> for selecting the text <b>partially</b> example</p>
+    <button onclick="selectingBiggerFragment()">selecting nodes</button>
+    <p>range selected: <span id="selecting-bigger-fragment-result"></span></p>
+    <hr>
+    <p>Range Properties</p>
+    <ul>
+        <li><b>startContainer, startOffset</b> => node and offset of the start</li>
+        <li><b>endContainer, endOffset</b> => node and offset of the end</li>
+        <li><b>collapsed</b> => true if the range starts and end at the same point (no content inside) otherwise false</li>
+        <li><b>commonAncestorContainer</b> => parent element of all the nodes in range</li>
+    </ul>
+    <hr>
+    <p>Range Selection Methods</p>
+    <p>set range start</p>
+    <ul>
+        <li><b>setStart(node, offset)</b> => set start at position <b>offset</b> in <b>node</b></li>
+        <li><b>setStartBefore(node)</b> => set start before <b>node</b></li>
+        <li><b>setStartAfter(node)</b> => set start after <b>node</b></li>
+
+    </ul>
+    <p>set range end</p>
+    <ul>
+        <li><b>setEnd(node, offset)</b> => set end at position <b>offset</b> in <b>node</b></li>
+        <li><b>setEndBefore(node)</b> => set end before <b>node</b></li>
+        <li><b>setEndAfter(node)</b> => set end after <b>node</b></li>
+
+    </ul>
+    <p>In all these methods, node can be both a text or element node:
+        for text nodes offset skips that many of characters,
+        while for element nodes that many child nodes.
+    </p>
+    <p>Methods to create range</p>
+    <ul>
+        <li><b>selectNode(node)</b> => set range to select the whole <b>node</b></li>
+        <li><b>selectNodeContents(node)</b> => set range to select the whole contents of <b>node</b></li>
+        <li><b>collapse(toStart)</b> if <b>toStart=true</b> set end=start </li>
+        <li><b>cloneRange()</b></li>
+    </ul>
+    <p>Range editing methods</p>
+    <ul>
+        <li><b>deleteContents</b></li>
+        <li><b>extractContents</b></li>
+        <li><b>cloneContents</b></li>
+        <li><b>insertNode</b></li>
+        <li><b>surroundContents</b></li>
+    </ul>
+    <hr>
+
 </body>
-<script>
-
-/**
- *  range is essentially a set of boundry points ( start and end )
- */
-/**
- *  range.setStart(node, offset)
- *  range.setEnd(node, offset)
- * 
- * if the start node is text node then the offset must be the position in text
- */
-function selectingTextPartially() {
-
-let node = document.getElementById('selecting-the-text-partially')
-
-let range = Range()
-range.setStart(node.firstChild, 3)
-range.setEnd(node.firstChild, 6)
-
-// console.log(range)
-
-// let result = document.getElementById('selecting-the-text-partially-result')
-}
-</script>
+<script src="index.js"> </script>
 </html>
